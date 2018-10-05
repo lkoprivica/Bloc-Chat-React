@@ -20,7 +20,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      activeRoom: ""
+      activeRoom: " "
     }
   }
 
@@ -32,6 +32,12 @@ class App extends Component {
     //then pass to messageList and use it to find all messages associated with that room.
   }
 
+  handleRoomClick(room){
+    const isSameRoom = this.state.currentRoom === room;
+    if(this.state.room && isSameRoom){
+      room === activeRoom;
+    }
+  }
   render() {
     return (
       <section>
@@ -40,6 +46,7 @@ class App extends Component {
         />
         <MessageList
            firebase = {firebase}
+           activeRoom = {this.state.activeRoom}
           />
       </section>
     );

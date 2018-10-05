@@ -4,8 +4,10 @@ class RoomList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      messages: [],
-      value:''
+      rooms: [],
+      value:'',
+      currentRoom: this.room[0]
+
     };
 
    this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -26,6 +28,7 @@ class RoomList extends Component {
     })
   }
 
+
   componentDidMount(){
     this.roomsRef.on('child_added', snapshot => {
       const room = snapshot.val();
@@ -34,6 +37,8 @@ class RoomList extends Component {
       console.log(snapshot.val());
     });
   }
+
+
 
   render(){
     return(
