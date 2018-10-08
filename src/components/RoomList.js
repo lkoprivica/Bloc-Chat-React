@@ -6,7 +6,7 @@ class RoomList extends Component {
     this.state = {
       rooms: [],
       value:'',
-      currentRoom: this.room[0]
+
 
     };
 
@@ -28,6 +28,12 @@ class RoomList extends Component {
     })
   }
 
+  handleRoomClick(room){
+    const isSameRoom = this.state.currentRoom === room;
+    if(this.state.room && isSameRoom){
+      room === this.state.activeRoom;
+    }
+  }
 
   componentDidMount(){
     this.roomsRef.on('child_added', snapshot => {
@@ -38,15 +44,13 @@ class RoomList extends Component {
     });
   }
 
-
-
   render(){
     return(
       <section className='roomList'>
 
       <ul>
         {this.state.rooms.map((room) =>
-          <li className="room" key={room.key}>
+          <li className="room" key={room.key} onClick={() => this.handleRoomClick(room)}>
             {room.name}
           </li>
         )}

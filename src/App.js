@@ -31,13 +31,7 @@ class App extends Component {
     //code...method to capture the room key...it will be stored in activeROOM state...
     //then pass to messageList and use it to find all messages associated with that room.
   }
-
-  handleRoomClick(room){
-    const isSameRoom = this.state.currentRoom === room;
-    if(this.state.room && isSameRoom){
-      room === activeRoom;
-    }
-  }
+  
   render() {
     return (
       <section>
