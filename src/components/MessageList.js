@@ -25,42 +25,24 @@ class MessageList extends Component {
             this.setState({
                 messages: temp
             })
-
             console.log(this.state.messages);
-
         });
-
     }
-
-
-
     render() {
-
-
       console.log(this.props.activeRoom + " from app");
         return (
             <div>
               <ul>
-                {
-                   this.state.messages.map((val,index)=>{
-                       { /*
-                           
-                           if this.props.activeRoom is equal to val.roomId
-                           THEN
-                           render val.Content
+                {this.state.messages.map((val,index)=>
+                    if (this.props.activeRoom === val.roomId){
+                        return <li key ={index}> {val.content}</li>
+                    }
+                 )
+                 }
+               </ul>
+             </div>
 
-                       */ }
-                   })
-
-                }
-              </ul>
-
-            </div>
-
-        )
-
-
-
+        );
     }
 }
 
