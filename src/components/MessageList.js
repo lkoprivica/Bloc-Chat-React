@@ -18,7 +18,7 @@ class MessageList extends Component {
     componentDidMount() {
         let temp = [];
         this.messagesRef.on('child_added', snapshot => {
-            console.log(snapshot.val());
+
 
             temp.push(snapshot.val())
 
@@ -37,10 +37,22 @@ class MessageList extends Component {
     render() {
 
 
+      console.log(this.props.activeRoom + " from app");
         return (
             <div>
               <ul>
-                messages will go here
+                {
+                   this.state.messages.map((val,index)=>{
+                       { /*
+                           
+                           if this.props.activeRoom is equal to val.roomId
+                           THEN
+                           render val.Content
+
+                       */ }
+                   })
+
+                }
               </ul>
 
             </div>

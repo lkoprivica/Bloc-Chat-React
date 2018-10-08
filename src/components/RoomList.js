@@ -41,7 +41,7 @@ class RoomList extends Component {
 
       <ul>
         {this.state.rooms.map((room) =>
-          <li className="room" key={room.key}>
+          <li className="room" key={room.key} onClick = {()=>this.props.setRoom(room.key)}>
             {room.name}
           </li>
         )}
