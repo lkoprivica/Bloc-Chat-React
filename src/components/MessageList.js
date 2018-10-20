@@ -29,12 +29,10 @@ class MessageList extends Component {
         <div>
           <ul>
            {this.state.messages.filter(val => {
-              return this.state.messages === this.props.ActiveRoom
+              return this.props.activeRoom === val.roomId
           })
           .map((val, index) => {
-              if(this.props.activeRoom === val.roomId){
-                return <li key = {index}>{val.Content}</li>
-              }
+              return <li key = {index}>{val.Content}</li>
             })
           }
           </ul>
