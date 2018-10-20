@@ -20,18 +20,15 @@ class App extends Component {
     super(props)
 
     this.state = {
-      activeRoom:""
+      activeRoom: ""
     }
   }
-  
+
   setRoom=(roomKey)=>{
     this.setState({
-      activeRoom:roomKey
+      activeRoom: roomKey
     })
   }
-  
-
-
   render() {
     return (
       <section>
@@ -43,7 +40,7 @@ class App extends Component {
         firebase = {firebase}
         activeRoom = {this.state.activeRoom}
       />
-       
+
       </section>
     );
   }

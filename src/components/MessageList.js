@@ -30,20 +30,20 @@ class MessageList extends Component {
     }
     render() {
       console.log(this.props.activeRoom + " from app");
-        return (
-            <div>
-              <ul>
-              {this.state.messages.map((val,index) => {
-                console.log("the active room is " + this.props.activeRoom + " the message room id is " + val.roomId + " the content is " + val.Content)
-                if(this.props.activeRoom == val.roomId){
-                  return <li key ={index}>{val.Content}</li>
-                }
-               })
+      return (
+        <div>
+          <ul>
+           {this.state.messages.filter(val => {
+              return this.state.messages === this.props.ActiveRoom
+          })
+          .map(val => {
+              if(this.props.activeRoom === val.roomId){
+                return <li key = {index}>{val.Content}</li>
               }
-               </ul>
-             </div>
-
-        );
+            })
+          </ul>
+        </div>
+      );
     }
 }
 
