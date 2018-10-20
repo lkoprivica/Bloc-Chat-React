@@ -8,18 +8,13 @@ class MessageList extends Component {
 
         this.state = {
             messages: []
-
         }
-
         this.messagesRef = this.props.firebase.database().ref('messages')
-
     }
 
     componentDidMount() {
         let temp = [];
         this.messagesRef.on('child_added', snapshot => {
-
-
             temp.push(snapshot.val())
 
             this.setState({
@@ -36,11 +31,12 @@ class MessageList extends Component {
            {this.state.messages.filter(val => {
               return this.state.messages === this.props.ActiveRoom
           })
-          .map(val => {
+          .map((val, index) => {
               if(this.props.activeRoom === val.roomId){
                 return <li key = {index}>{val.Content}</li>
               }
             })
+          }
           </ul>
         </div>
       );
