@@ -16,7 +16,6 @@ class MessageList extends Component {
         let temp = [];
         this.messagesRef.on('child_added', snapshot => {
             temp.push(snapshot.val())
-
             this.setState({
                 messages: temp
             })
@@ -41,4 +40,4 @@ class MessageList extends Component {
     }
 }
 
-export default MessageList
+export default MessageList;
