@@ -16,7 +16,10 @@ class MessageList extends Component {
         let temp = [];
         this.messagesRef.on('child_added', snapshot => {
             temp.push(snapshot.val())
+<<<<<<< HEAD
 
+=======
+>>>>>>> checkpoint-set-username
             this.setState({
                 messages: temp
             })
@@ -41,4 +44,8 @@ class MessageList extends Component {
     }
 }
 
+<<<<<<< HEAD
 export default MessageList
+=======
+export default MessageList;
+>>>>>>> checkpoint-set-username

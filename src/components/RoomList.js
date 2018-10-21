@@ -38,7 +38,6 @@ class RoomList extends Component {
   render(){
     return(
       <section className='roomList'>
-
       <ul>
         {this.state.rooms.map((room) =>
           <li className="room" key={room.key} onClick = {()=>this.props.setRoom(room.key)}>
@@ -46,7 +45,6 @@ class RoomList extends Component {
           </li>
         )}
       </ul>
-
       <form onSubmit={this.handleSubmit}>
        <label>
          Create room:
@@ -58,6 +56,7 @@ class RoomList extends Component {
 
     );
   }
+
 }
 
 export default RoomList;
