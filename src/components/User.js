@@ -7,7 +7,6 @@ class User extends Component {
     this.state = {
       signIn: false,
       signOut: false
-
     }
   }
   componentDidMount(){

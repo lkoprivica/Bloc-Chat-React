@@ -45,7 +45,6 @@ class RoomList extends Component {
           </li>
         )}
       </ul>
-
       <form onSubmit={this.handleSubmit}>
        <label>
          Create room:
