@@ -5,9 +5,7 @@ class RoomList extends Component {
     super(props);
     this.state = {
       rooms: [],
-      value:'',
-
-
+      value:''
     };
 
    this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -28,13 +26,6 @@ class RoomList extends Component {
     })
   }
 
-  handleRoomClick(room){
-    const isSameRoom = this.state.currentRoom === room;
-    if(this.state.room && isSameRoom){
-      room === this.state.activeRoom;
-    }
-  }
-
   componentDidMount(){
     this.roomsRef.on('child_added', snapshot => {
       const room = snapshot.val();
@@ -50,7 +41,7 @@ class RoomList extends Component {
 
       <ul>
         {this.state.rooms.map((room) =>
-          <li className="room" key={room.key} onClick={() => this.handleRoomClick(room)}>
+          <li className="room" key={room.key} onClick = {()=>this.props.setRoom(room.key)}>
             {room.name}
           </li>
         )}

@@ -16,32 +16,31 @@ import * as firebase from 'firebase';
  firebase.initializeApp(config);
 
 class App extends Component {
-
   constructor(props){
     super(props)
+
     this.state = {
-      activeRoom: " "
+      activeRoom: ""
     }
   }
 
-  setRoom(){
-    const currentRoom = this.room.key;
-    this.room.activeRoom = currentRoom;
-    this.setState({activeRoom: currentRoom});
-    //code...method to capture the room key...it will be stored in activeROOM state...
-    //then pass to messageList and use it to find all messages associated with that room.
+  setRoom=(roomKey)=>{
+    this.setState({
+      activeRoom: roomKey
+    })
   }
-  
   render() {
     return (
       <section>
       <RoomList
         firebase = {firebase}
-        />
-        <MessageList
-           firebase = {firebase}
-           activeRoom = {this.state.activeRoom}
-          />
+        setRoom = {this.setRoom}
+      />
+      <MessageList
+        firebase = {firebase}
+        activeRoom = {this.state.activeRoom}
+      />
+
       </section>
     );
   }
