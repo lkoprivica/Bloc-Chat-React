@@ -38,7 +38,6 @@ class RoomList extends Component {
   render(){
     return(
       <section className='roomList'>
-
       <ul>
         {this.state.rooms.map((room) =>
           <li className="room" key={room.key} onClick = {()=>this.props.setRoom(room.key)}>

@@ -4,6 +4,7 @@ import './App.css';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
 import * as firebase from 'firebase';
+import User from './components/User';
 
  var config = {
    apiKey: "AIzaSyC6h46UjcJcLBbcebmlvLhtEbKYf-Lz9Ig",
@@ -29,6 +30,12 @@ class App extends Component {
       activeRoom: roomKey
     })
   }
+
+  setUser=()=>{
+    this.setState({
+
+    })
+  }
   render() {
     return (
       <section>
@@ -40,7 +47,10 @@ class App extends Component {
         firebase = {firebase}
         activeRoom = {this.state.activeRoom}
       />
-
+      <User
+        firebase ={firebase}
+        setUser = {this.User}
+      />
       </section>
     );
   }
