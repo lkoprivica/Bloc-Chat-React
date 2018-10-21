@@ -21,7 +21,8 @@ class App extends Component {
     super(props)
 
     this.state = {
-      activeRoom: ""
+      activeRoom: "" ,
+      user: null
     }
   }
 
@@ -31,10 +32,12 @@ class App extends Component {
     })
   }
 
-  setUser=()=>{
+  setUser=(user)=>{
     this.setState({
+      user: user
     })
   }
+
   render() {
     return (
       <section>
@@ -47,8 +50,8 @@ class App extends Component {
         activeRoom = {this.state.activeRoom}
       />
       <User
-        firebase ={firebase}
-        setUser = {this.User}
+        firebase = {firebase}
+        setUser = {this.setUser.bind(this)}
       />
       </section>
     );

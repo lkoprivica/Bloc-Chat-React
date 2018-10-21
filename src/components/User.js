@@ -39,17 +39,31 @@ class User extends Component {
   handleChangeSignOut=(event)=>{
     this.setState({SignOut: event.target.SignOut});
   }
-  
+
+  nameDisplayed=()=>{
+    if(this.props.user){
+      return this.props.user.displayName
+    }else
+      return "Guest"
+  }
+
   render() {
     return (
-     <section className = "signInsignOut">
+     <section className = "sign-In-sign-Out">
       <button onClick={this.signIn}>
         Sign In
       </button>
       <button onClick={this.signOut}>
         Sign Out
       </button>
+
+      <div>
+       {this.nameDisplayed()}
+      </div>
+
      </section>
+
+
    );
   }
 }
