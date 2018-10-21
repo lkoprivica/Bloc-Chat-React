@@ -56,9 +56,8 @@ class User extends Component {
       <button onClick={this.signOut}>
         Sign Out
       </button>
-
       <div>
-       {this.nameDisplayed()}
+        {this.nameDisplayed()}
       </div>
 
      </section>
