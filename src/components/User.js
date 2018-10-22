@@ -3,7 +3,10 @@ import React, {Component} from 'react';
 class User extends Component {
   constructor(props){
     super(props)
+<<<<<<< HEAD
 
+=======
+>>>>>>> checkpoint-list-messages
     this.state = {
       signIn: false,
       signOut: false
@@ -57,9 +60,14 @@ class User extends Component {
         Sign Out
       </button>
       <div>
+<<<<<<< HEAD
         {this.nameDisplayed()}
       </div>
 
+=======
+        {this.nameDisplayed(this.props.user)}
+      </div>
+>>>>>>> checkpoint-list-messages
      </section>
 
 
