@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 class User extends Component {
   constructor(props){
     super(props)
-
     this.state = {
       signIn: false,
       signOut: false
@@ -40,16 +39,28 @@ class User extends Component {
     this.setState({SignOut: event.target.SignOut});
   }
 
+  nameDisplayed=()=>{
+    if(this.props.user){
+      return this.props.user.displayName
+    }else
+      return "Guest"
+  }
+
   render() {
     return (
-     <section className = "signInsignOut">
+     <section className = "sign-In-sign-Out">
       <button onClick={this.signIn}>
         Sign In
       </button>
       <button onClick={this.signOut}>
         Sign Out
       </button>
+      <div>
+        {this.nameDisplayed(this.props.user)}
+      </div>
      </section>
+
+
    );
   }
 }

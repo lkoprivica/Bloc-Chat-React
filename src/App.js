@@ -19,7 +19,6 @@ import User from './components/User';
 class App extends Component {
   constructor(props){
     super(props)
-
     this.state = {
       activeRoom: ""
     }
