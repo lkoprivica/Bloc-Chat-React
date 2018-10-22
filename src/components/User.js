@@ -57,9 +57,8 @@ class User extends Component {
         Sign Out
       </button>
       <div>
-        {this.nameDisplayed()}
+        {this.nameDisplayed(this.props.user)}
       </div>
-
      </section>
 
 

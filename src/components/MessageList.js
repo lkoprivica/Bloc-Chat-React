@@ -7,7 +7,8 @@ class MessageList extends Component {
         super(props)
 
         this.state = {
-            messages: []
+            messages: [],
+            value: ""
         }
         this.messagesRef = this.props.firebase.database().ref('messages')
     }
@@ -16,20 +17,31 @@ class MessageList extends Component {
         let temp = [];
         this.messagesRef.on('child_added', snapshot => {
             temp.push(snapshot.val())
-<<<<<<< HEAD
-
-=======
->>>>>>> checkpoint-set-username
             this.setState({
                 messages: temp
             })
             console.log(this.state.messages);
         });
     }
+
+    handleChange=(event)=>{
+      this.setState({value: event.target.value});
+    }
+
+    handleSubmit=(event)=>{
+      event.preventDefault();
+      this.messagesRef.push({
+        message: this.state.value
+      });
+      this.setState({
+        value: ""
+      })
+    }
+
     render() {
       console.log(this.props.activeRoom + " from app");
       return (
-        <div>
+        <section className = "MessageList">
           <ul>
            {this.state.messages.filter(val => {
               return this.props.activeRoom === val.roomId
@@ -39,13 +51,17 @@ class MessageList extends Component {
             })
           }
           </ul>
-        </div>
+
+          <form onSubmit={this.handleSubmit}>
+           <label>
+             Create Message:
+             <input type="text" value={this.state.value} onChange={this.handleChange} />
+           </label>
+           <input type="submit" value="Submit" />
+         </form>
+        </section>
       );
     }
 }
 
-<<<<<<< HEAD
-export default MessageList
-=======
 export default MessageList;
->>>>>>> checkpoint-set-username
