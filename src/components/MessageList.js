@@ -5,15 +5,9 @@ class MessageList extends Component {
 
     constructor(props) {
         super(props)
-<<<<<<< HEAD
-
-        this.state = {
-            messages: []
-=======
         this.state = {
             messages: [],
             value: ""
->>>>>>> checkpoint-list-messages
         }
         this.messagesRef = this.props.firebase.database().ref('messages')
     }
@@ -22,25 +16,12 @@ class MessageList extends Component {
         let temp = [];
         this.messagesRef.on('child_added', snapshot => {
             temp.push(snapshot.val())
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> checkpoint-set-username
-=======
->>>>>>> checkpoint-list-messages
             this.setState({
                 messages: temp
             })
             console.log(this.state.messages);
         });
     }
-<<<<<<< HEAD
-    render() {
-      console.log(this.props.activeRoom + " from app");
-      return (
-        <div>
-=======
 
     handleChange=(event)=>{
       this.setState({value: event.target.value});
@@ -60,7 +41,6 @@ class MessageList extends Component {
       console.log(this.props.activeRoom + " from app");
       return (
         <section className = "MessageList">
->>>>>>> checkpoint-list-messages
           <ul>
            {this.state.messages.filter(val => {
               return this.props.activeRoom === val.roomId
@@ -70,9 +50,6 @@ class MessageList extends Component {
             })
           }
           </ul>
-<<<<<<< HEAD
-        </div>
-=======
 
           <form onSubmit={this.handleSubmit}>
            <label>
@@ -82,17 +59,8 @@ class MessageList extends Component {
            <input type="submit" value="Submit" />
          </form>
         </section>
->>>>>>> checkpoint-list-messages
       );
     }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-export default MessageList
-=======
 export default MessageList;
->>>>>>> checkpoint-set-username
-=======
-export default MessageList;
->>>>>>> checkpoint-list-messages
