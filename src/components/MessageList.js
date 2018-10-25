@@ -13,7 +13,7 @@ class MessageList extends Component {
             roomId: ""
         }
         this.messagesRef = this.props.firebase.database().ref('messages')
-        this.createMessage = this.createMessage.bind(this);
+
     }
 
     componentDidMount() {
@@ -27,30 +27,31 @@ class MessageList extends Component {
         });
     }
 
-    createMessage(event) {
-      event.preventDefault();
-      console.log("this room id is: ", this.state.roomId)
-      if (this.props.activeRoomId === '') {
-        window.alert("Please Choose a Chat Room First =)")
-      }
-      else {
-        this.messagesRef.push({
-        userName: !this.props.user ? "Guest" : this.props.user.displayName,
-        content: this.state.content,
-        sentAt: this.state.sentAt,
-        roomId: this.state.roomId
+    createMessage=(event)=> {
+        var d = new Date();
+        var n = d.toLocaleTimeString();
+        event.preventDefault();
+        console.log("this room id is: ", this.state.roomId)
+        if (this.props.activeRoomId === '') {
+          window.alert("Please Choose a Chat Room First =)")
+        }
+        else {
+          this.messagesRef.push({
+          userName: !this.props.user ? "Guest" : this.props.user.displayName,
+          content: this.state.content,
+          sentAt: n,
+          roomId: this.props.activeRoom
 
+          })
+
+        }
+        this.setState({
+          userName: "",
+          content: "",
+          sentAt:"",
+          roomId: ""
         })
-
       }
-      this.setState({
-        userName: "",
-        content: "",
-        sentAt:"",
-        roomId: ""
-      })
-    }
-
     handleChange=(event)=>{
       event.preventDefault();
       this.setState({
@@ -66,7 +67,7 @@ class MessageList extends Component {
       return (
         <section>
         <div className="chatroom-name">
-          <h2>{(this.props.activeRoom === '') ? "" : this.props.activeRoom}</h2>
+          <h2>{this.props.activeRoom}</h2>
         </div>
         <div className = "MessageList">
           <ul>

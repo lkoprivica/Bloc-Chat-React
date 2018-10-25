@@ -48,6 +48,7 @@ class App extends Component {
       <MessageList
         firebase = {firebase}
         activeRoom = {this.state.activeRoom}
+        createMessage = {this.state.createMessage}
       />
       <User
         firebase = {firebase}
