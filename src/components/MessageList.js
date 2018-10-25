@@ -28,6 +28,7 @@ class MessageList extends Component {
 
     createMessage(event) {
       event.preventDefault();
+      console.log("this room id is: ", this.state.roomId)
       if (this.props.activeRoomId === '') {
         window.alert("Please Choose a Chat Room First =)")
       }
@@ -39,6 +40,7 @@ class MessageList extends Component {
         roomId: this.state.roomId
 
         })
+
       }
       this.setState({
         userName: "",
@@ -54,7 +56,7 @@ class MessageList extends Component {
         userName: this.props.displayName,
         content: event.target.value,
         sentAt: "",
-        roomId: ""
+        roomId: this.props.activeRoom.id
       });
     }
 
@@ -71,8 +73,8 @@ class MessageList extends Component {
                 return this.props.activeRoom === val.roomId
             })
             .map((val, index) => {
-                return
-                <li className ="message-form" key={index}>
+
+                return <li className ="message-form" key={index}>
                   {val.username}
                   {val.content}
                   {val.sentAt}
