@@ -14,6 +14,7 @@ class MessageList extends Component {
         }
         this.messagesRef = this.props.firebase.database().ref('messages')
 
+
     }
 
     componentDidMount() {
@@ -67,12 +68,12 @@ class MessageList extends Component {
       return (
         <section>
         <div className="chatroom-name">
-          <h2>{this.props.activeRoom}</h2>
+          <h2>{this.props.activeRoom.name}</h2>
         </div>
         <div className = "MessageList">
           <ul>
              {this.state.messages.filter(val => {
-                return this.props.activeRoom === val.roomId
+                return this.props.activeRoom.id === val.roomId
             })
             .map((val, index) => {
 
