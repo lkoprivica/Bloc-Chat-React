@@ -27,8 +27,8 @@ class MessageList extends Component {
     }
 
     createMessage=(event)=> {
-        var d = new Date();
-        var n = d.toLocaleTimeString();
+        var date = new Date();
+        var timeSent = date.toLocaleTimeString();
         event.preventDefault();
         console.log("this room id is: ", this.state.roomId)
         if (this.props.activeRoomId === '') {
@@ -38,7 +38,7 @@ class MessageList extends Component {
           this.messagesRef.push({
           userName: !this.props.user ? "Guest" : this.props.user.displayName,
           content: this.state.content,
-          sentAt: n,
+          sentAt: timeSent,
           roomId: this.props.activeRoom.key
 
           })
